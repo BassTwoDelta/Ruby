@@ -1,6 +1,6 @@
 module MyEnumerable
     def my_each
-        
+        self.each { |i| yield i  } 
     end
 end
 class Array
