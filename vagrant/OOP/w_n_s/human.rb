@@ -8,13 +8,16 @@ class Human
     end
 
     def take_damage amount 
+        if amount > @health
+            @health == 0
+        else 
         @health -= amount
+        end
     end
 
-    def attack thing 
-        if thing.class.ancestors.include?(Human)
-            puts "Attacked the human!"
-            thing.take_damage(5)
+    def attack object
+        if object.class.ancestors { |i| i == Human || Wizard || Samurai || Ninja }
+            object.take_damage(5)
         else 
             puts "not human"
         end
