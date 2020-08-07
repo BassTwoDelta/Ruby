@@ -1,0 +1,7 @@
+Comment.create(imageable: Post.first, comment:"IS IT WORKING?!")
+Comment.create(imageable: Blog.first, comment:"YAY IT IS WORKING OMG OMG OMG")
+Comment.create(imageable: Message.first, comment:"Hay Hay Hay") 
+Comment.create(imageable: User.first, comment:"You are awesome")
+
+comment.update(comment: "Hay1")
+comment.destroy
