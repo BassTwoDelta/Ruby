@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>LISTING <%= @dojos.count%> DOJOS</h1>
+    <table class="table table-striped">
+        <tbody>
+            <th>Branch</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <% @dojos.each do |dojo| %>
+            <tr>
+                <td><%= dojo.branch %></td>
+                <td><%= dojo.street %></td>
+                <td><%= dojo.city %></td>
+                <td><%= dojo.state %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
