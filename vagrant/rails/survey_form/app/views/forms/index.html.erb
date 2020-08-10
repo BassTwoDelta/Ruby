@@ -1,0 +1,21 @@
+<form action="/" method="POST">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <label for="name">Your Name:</label>
+    <input type="text" name="name"><br><br>
+    <label for="location">Dojo Location:</label>
+    <select name="location">
+        <option value="dallas">Dallas, TX</option>
+        <option value="san_jose">San Jose, CA</option>
+        <option value="dc">Washington, DC</option>
+        <option value="seattle">Seattle, WA</option>
+    </select><br><br>
+    <label for="fave_lang">Favorite Language:</label>
+    <select name="fave_lang">
+        <option value="javascript">JavaScript</option>
+        <option value="python">Python</option>
+        <option value="ruby">Ruby</option>
+    </select><br><br>
+    <label for="comment">Comment:</label>
+    <textarea name="comment" rows="3"></textarea><br><br>
+    <input type="submit" value="SUBMIT INFO!">
+</form>

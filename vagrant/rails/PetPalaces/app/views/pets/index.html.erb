@@ -1,0 +1,11 @@
+<h1>Pets Index</h1>
+<table>
+    <th>Name</th>
+    <th>Breed</th>
+    <th>Shelter Type</th>
+    <% @pets.each do |pet| %>
+    <tr>
+        <td><%= pet.name %></td>
+    </tr>
+    <% end %>
+</table>

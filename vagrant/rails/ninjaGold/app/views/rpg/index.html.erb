@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="gold_count">
+        <p>Your Gold: <%= @gold %><p>
+    </div>
+    <div class="places_to_farm">
+
+        <div class="farm">
+            <h3>Farm</h3>
+            <p>(earns 10-20 golds)</p>
+            <form action="/process" method="POST">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input type="hidden" name="farm" value="farm">
+                <input type="submit" name="farm" value='Farm Gold!!'>
+            </form>
+        </div>
+
+        <div class="cave">
+            <h3>Cave</h3>
+            <p>(earns 5-10 golds)</p>
+            <form action="/process" method="POST">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input type="hidden" name="cave" value="cave">
+                <input type="submit" name="cave" value="Farm Cave!!">
+            </form>
+        </div>
+
+        <div class="house">
+            <h3>House</h3>
+            <p>(earns 2-5 golds)</p>
+            <form action="/process" method="POST">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input type="hidden" name="house" value="house">
+                <input type="submit" name="house" value="Farm House!!">
+            </form>
+        </div>
+
+        <div class="casino">
+            <h3>Casino</h3>
+            <p>(earns/takes 0-50 golds)</p>
+            <form action="/process" method="POST">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <input type="hidden" name="casino" value="casino">
+                <input type="submit" name="casino" value="Farm Casino!!">
+            </form>
+        </div>
+    </div>
+    <div class="activity_log">
+    <% session[:log].each do |message| %>
+    <p><%= message %></p>
+    <% end %>
+    </div>
+</div>
