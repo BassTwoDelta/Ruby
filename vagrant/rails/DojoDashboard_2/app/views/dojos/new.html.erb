@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>ADD A NEW DOJO</h1>
+    <form action="/dojos" method="POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <label for="branch">Branch:</label>
+        <input type="text" name="branch"><br><br>
+        <label for="street">Street:</label>
+        <input type="text" name="street"><br><br>
+        <label for="city">City:</label>
+        <input type="text" name="city"><br><br>
+        <label for="state">State:</label>
+        <input type="text" name="state"><br><br>
+        <input type="submit" value="SUBMIT NEW DOJO">
+    </form>
+</div>
