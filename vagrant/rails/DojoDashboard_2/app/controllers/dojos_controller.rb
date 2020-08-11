@@ -4,7 +4,7 @@ class DojosController < ApplicationController
   end
 
   def new
-
+    @dojo = Dojo.new
   end
 
   def redirect
@@ -12,7 +12,18 @@ class DojosController < ApplicationController
   end
 
   def create 
-    @dojo = Dojo.create(branch: params[:branch], street: params[:street], city: params[:city], state: params[:state])
-    redirect_to '/dojos'
+    @dojo = Dojo.create(dojo_params)
+    @dojo.save
+    if @dojo.errors 
+      flash[:errors] = @dojo.errors.full_messages
+      redirect_to '/dojos/new'
+    else 
+      redirect_to '/dojos'
+    end
   end
+
+  private
+    def dojo_params
+      params.require(:dojo).permit(:branch, :street, :city, :state)
+    end
 end
