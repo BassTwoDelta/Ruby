@@ -1,6 +1,7 @@
 function SLNode(val){
     this.val = val 
     this.next = null
+    this.child = null
 }
 
 function SLList(){
