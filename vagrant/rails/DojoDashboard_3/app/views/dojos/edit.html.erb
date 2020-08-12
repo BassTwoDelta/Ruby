@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Editing <%= @dojo.branch %></h1>
+    <form action="/dojos/<%= @dojo.id %>" method="POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="hidden" name="_method" value="PATCH">
+        <label for="branch">Branch:</label>
+        <input type="text" name="dojo[branch]" value='<%= @dojo.branch %>'><br><br>
+        <label for="street">Street:</label>
+        <input type="text" name="dojo[street]" value='<%= @dojo.street %>'><br><br>
+        <label for="city">City:</label>
+        <input type="text" name="dojo[city]" value='<%= @dojo.city %>'><br><br>
+        <label for="state">State:</label>
+        <input type="text" name="dojo[state]" value='<%= @dojo.state %>'><br><br>
+        <input type="submit" value="UPDATE DOJO">
+    </form>
+    <% if flash[:errors] %>
+    <div id="errors">
+        <ul>
+            <% flash[:errors].each do |msg|%>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+</div>
