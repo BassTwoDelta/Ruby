@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>LISTING <%= @dojos.count%> DOJOS</h1>
+    <table class="table table-striped">
+        <tbody>
+            <th>Branch</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Action</th>
+            <% @dojos.each do |dojo| %>
+            <tr>
+                <td><%= dojo.branch %></td>
+                <td><%= dojo.street %></td>
+                <td><%= dojo.city %></td>
+                <td><%= dojo.state %></td>
+                <td><a href="dojos/<%= dojo.id %>">Show</a> | <a href="dojos/<%=dojo.id%>/edit">Edit</a> | <%= link_to "Destroy", destroy_dojo_path(dojo), :method => :delete %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table><hr>
+    <a href="dojos/new">NEW DOJO</a>
+</div>
