@@ -1,0 +1,22 @@
+<div class='container'>
+    <h1>Edit Student</h1>
+    <form class="form-group" action ="/dojos/<%= @dojo.id %>/students/<%=@student.id%>" method=POST>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="hidden" name="_method" value="PATCH">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="student[first_name]" value="<%= @student.first_name %>"><br><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="student[last_name]" value="<%= @student.last_name %>"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" name="student[email]" value="<%= @student.email %>"><br><br>
+        <label for="dojoBranch">Branch:</label>
+        <select name="student[dojo_id]">
+            <option value="<%= @dojo.id %>"><%= @dojo.branch %></option>
+        <% @dojos.each do |dojo|%>
+            <option value="<%= dojo.id %>"><%= dojo.branch%></option>
+        <% end %>
+        </select>
+        <input type="submit" value="Edit student">
+    </form>
+    <p><a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>/students/<%= @student.id %>"><%= @student.first_name %></a>
+</div>

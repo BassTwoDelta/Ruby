@@ -1,0 +1,21 @@
+<div class='container'>
+    <h1>ADD A NEW STUDENT</h1>
+    <form class="form-group" action ="/dojos/<%= @dojo.id %>/students" method=POST>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="student[first_name]"><br><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="student[last_name]"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" name="student[email]"><br><br>
+        <label for="dojoBranch">Branch:</label>
+        <select name="student[dojo_id]">
+            <option value="<%= @dojo.id %>"><%= @dojo.branch %></option>
+        <% @dojos.each do |dojo|%>
+            <option value="<%= dojo.id %>"><%= dojo.branch%></option>
+        <% end %>
+        </select>
+        <input type="submit" value="Submit new student">
+    </form>
+    <p><a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>"><%= @dojo.branch %></a>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>ADD A NEW DOJO</h1>
+    <form action="/dojos" method="POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <label for="branch">Branch:</label>
+        <input type="text" name="dojo[branch]"><br><br>
+        <label for="street">Street:</label>
+        <input type="text" name="dojo[street]"><br><br>
+        <label for="city">City:</label>
+        <input type="text" name="dojo[city]"><br><br>
+        <label for="state">State:</label>
+        <input type="text" name="dojo[state]"><br><br>
+        <input type="submit" value="SUBMIT NEW DOJO">
+    </form>
+    <% if flash[:errors] %>
+    <div id="errors">
+        <ul>
+            <% flash[:errors].each do |msg|%>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+</div>
