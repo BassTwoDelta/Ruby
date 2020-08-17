@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to The Budget App</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag  'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class='container-fluid'>
+        <h1 style="text-align: center">Welcome to the Daily Budget App</h1>
+        <h2 style="text-align: center; color: green;">$$$$$$$$</h2>
+        <hr>
+        <br>
+        <div class="row">
+            <div style="text-align: center;" class="col-md-4">
+                <%= yield :left_column %>
+            </div>
+            <div style="text-align: center;" class="col-md-4">
+                <%= yield :middle_column %>
+            </div>
+            <div style="text-align: center; font-size: 75px;" class="col-md-4">
+                <%= yield :right_column %>
+            </div>
+        </div>
+    </div>
+
+<%= yield %>
+
+
+</body>
+</html>
