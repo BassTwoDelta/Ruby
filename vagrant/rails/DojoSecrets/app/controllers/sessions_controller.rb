@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    session[:id] = 1
+    if @user = User.find_by(email: params[:user][:email]).try(:authenticate, params[:user][:password])
+      session[:id] = @user.id
     redirect_to '/users'
   end
 

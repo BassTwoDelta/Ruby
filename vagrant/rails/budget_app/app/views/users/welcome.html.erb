@@ -1,0 +1,32 @@
+<%# left column is for entering total income and fixed expences %>
+<% content_for :left_column do%>
+<h3>Income, Expenses,Amount To Save</h3>
+    <form action="welcome/calculate" method="POST">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <label for="monthly_income">Total Monthly Income:</label>
+        <input type="integer" name="monthly_income"><br>
+        <label for="expenses">Monthly Fixed Expenses:</label>
+        <input type="integer" name="monthly_expenses"><br>
+        <label for="save_amount">Amount to save:</label>
+        <input type="integer" name="save_amount"><br>
+        <input type="submit" class="btn btn-success" value="Calculate">
+    </form>
+    <br>
+    <hr>
+    <h3>Total to Spend</h3>
+    <p>$<%= @total_to_spend %></p>
+<% end %>
+
+<%# This is for the total per day amount %>
+<% content_for :middle_column do%>
+    <h3>Total to Spend Per Day</h3>
+    <p style="font-size: 75px">$<%= @total_per_day %></p>
+    <br>
+    <hr>
+<%end%>
+
+<%# days left in the month %>
+<% content_for :right_column do%>
+    <h3>Days Left In Month</h3>
+    <%= @days_left %>
+<% end %>

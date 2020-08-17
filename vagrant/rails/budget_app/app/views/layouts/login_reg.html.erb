@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login & Registration - Budget App</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag  'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class='container'>
+        <h1 style="text-align: center">Welcome to the Daily Budget App</h1>
+        <h2 style="text-align: center; color: green;">$$$$$$$$</h2>
+        <br><br>
+        <div class="row">
+            <div class="col-md-6">
+                <%= yield :left_column %>
+            </div>
+            <div class="col-md-6">
+                <%= yield :right_column %>
+            </div>
+        </div>
+    </div>
+
+<%= yield %>
+
+
+</body>
+</html>
