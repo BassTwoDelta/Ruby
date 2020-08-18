@@ -1,0 +1,35 @@
+<div class="container">
+    <div style="text-align: right" class="header">
+        <h4>Coding Dojo Wall</h4>
+        <p>Welcome <%= @user.username %></p>
+        <a href="/destroy_session">Logout</a>
+    </div><hr>
+
+    <div class="post_section">
+        <h2>POST A MESSAGE</h2>
+        <form action='/messages/post' method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <textarea style="width: 500px" rows="5" name="post[content]" placeholder="message to post goes here"></textarea><br>
+        <input type="submit" value="POST!">
+    </form>
+    <% if flash[:errors] %>
+        <div style="width:40%; margin:0 auto;" class="alert alert-danger" role="alert" id="errors">
+            <ul>
+                <% flash[:errors].each do |msg|%>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <hr>
+
+    <% @post.each do |post|%>
+        <div class="message_post">
+            <p><%= post.user.username %> - <%= post.created_at.strftime("%B %d, %Y") %></p>
+            <%= post.content %>
+        </div><br>
+
+    <% end %>
+
+    </div>
+</div>
