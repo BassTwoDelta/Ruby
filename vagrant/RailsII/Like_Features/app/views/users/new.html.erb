@@ -1,0 +1,22 @@
+<form action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="name">Name</label>
+    <input type="text" id="Name" name="user[name]" placehoder="Name">
+    <label for="Email">Email</label>
+    <input type="text" id="Email" name="user[email]" placehoder="Email">
+    <label for="password">Password</label>
+    <input type="password" id="Password" name="user[password]">
+    <label for="password">Password Confirmation</label>
+    <input type="password" id="Password_Confirmation" name="user[password_confirmation]">
+    <input type="submit" value="Join">
+</form>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |msg|%>
+        <div id="errors">
+            <ul>
+                <li><%= msg %></li>
+            </ul>
+        </div>
+    <%end%>
+<%end%>
