@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="header">
+        <p style="text-align: right;"><%= link_to "Bright Ideas", bright_ideas_path(), :method => :get %> | <%= link_to "Logout", destroy_session_path(current_user), :method => :delete %></p>
+    </div>
+    <div class="idea">
+        <p><a href="users/<%=@idea.user.id %>"><%= @idea.user.alias %></a> says:</p>
+        <p style= "border:1px solid black; width:75%; height:50px;"><%= @idea.content %></p>
+    </div><br><br>
+    <div class="people_who_liked">
+        <h4>People who liked this post!</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Alias</th>
+                            <th scope="col">Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @likes.each do |like| %>
+                            <tr>
+                                <td><a href="/users/<%= like.user.id %>"><%= like.user.alias %></a></td>
+                                <td><%= like.user.name %></td>
+                            </tr>
+                        <% end %>
+                </table>
+            </div>
+        </div>
+    <div>
+</div>

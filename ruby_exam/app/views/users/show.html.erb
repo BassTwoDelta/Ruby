@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="header">
+        <p style="text-align: right;"><%= link_to "Bright Ideas", bright_ideas_path(), :method => :get %> | <%= link_to "Logout", destroy_session_path(current_user), :method => :delete %></p>
+    </div>
+    <div class="user_info">
+        <h4>Name: <%= @user.name %><h4>
+        <h4>Alias: <%= @user.alias %><h4>
+        <h4>Email: <%= @user.email %><h4>
+        <br>
+        <hr>
+        <br>
+        <h4>Total Number of Posts: <%= @user.posts.count %></h4>
+        <h4>Total Number of Likes: <%= @user.likes.count %></h4>
+    </div>
+</div>

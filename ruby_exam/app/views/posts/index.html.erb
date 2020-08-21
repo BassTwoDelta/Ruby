@@ -1,0 +1,31 @@
+<div class="container">
+    <div style="display: inline-block;" class="header">
+    <h4>Hi <%= current_user.alias %>!</h4>
+        <div style="display: inline-block; text-align: right;" class="logout">
+            <%= link_to "Logout", destroy_session_path(current_user), :method => :delete %>
+        </div>
+    </div>
+    <hr>
+    <div style="text-align: center; margin: 0 auto; width: 75%" class="create_post">
+        <form action="/posts" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <div class="form-group">
+                    <input type="text" style="width:90%" id="content" name="post[content]" placeholder="Post something witty here...">
+                    <input type="submit" value="Idea!" class="btn btn-success">
+                </div>
+        </form>
+    </div><br><br>
+    <div class="idea_section">
+        <% @ideas.each do |idea| %>
+            <div class="idea">
+            <p><a href="users/<%=idea.user.id %>"><%= idea.user.alias %></a> says:</p>
+            <p style="margin-left: 100px; border:1px solid black; width:75%; height:50px;"><%= idea.content %></p>
+            <p style="margin-left: 100px;"><%= link_to "Like", like_post_path(idea), :method => :post %> | <a href="/bright_ideas/<%= idea.id %>"><%= idea.likes.count%> people</a> like this 
+            <% if current_user.id == idea.user.id %>
+                | <%= link_to "Delete", destroy_post_path(idea), :method => :delete %>
+            <% end %>
+            </p>
+            </div>
+        <% end %>
+    </div>
+</div>
