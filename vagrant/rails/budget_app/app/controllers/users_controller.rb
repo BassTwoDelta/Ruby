@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def login
     user = User.find_by(email: params[:email])
-      if user.password = params[:password]
+      if user && user.authenticate(params[:password])
         redirect_to "/welcome"
       else
         redirect_to '/'
