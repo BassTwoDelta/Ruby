@@ -40,6 +40,4 @@ function SLList(){
 
 
 }
-
-SL1 = new SLNode(10)
-console.log(SL1)
+}
