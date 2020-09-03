@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   post 'events' => "events#create"
   delete 'destroy' => "sessions#destroy", as: "destroy_session"
   delete 'events/:id/destroy' => "events#destroy", as: "destroy_event"
+  post 'events/:id/join' => "joins#create", as: "join_event"
+  
 end

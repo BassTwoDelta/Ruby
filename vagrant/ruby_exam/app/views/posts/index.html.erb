@@ -19,7 +19,7 @@
         <% @ideas.each do |idea| %>
             <div class="shadow p-3 mb-5 bg-light rounded">
             <p><a href="users/<%=idea.user.id %>"><%= idea.user.alias %></a> says:</p>
-            <p style="margin-left: 100px; border:1px solid black; width:75%; height:50px;"><%= idea.content %></p>
+            <p style="margin-left: 100px; width:75%; height:50px;"><%= idea.content %></p>
             <p style="margin-left: 100px;"><%= link_to "Like", like_post_path(idea), :method => :post %> | <a href="/bright_ideas/<%= idea.id %>"><%= idea.likes.count%> people</a> like this 
             <% if current_user.id == idea.user.id %>
                 | <%= link_to "Delete", destroy_post_path(idea), :method => :delete %>
